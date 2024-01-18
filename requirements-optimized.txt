@@ -1,0 +1,11 @@
+python-dotenv
+streamlit
+pypdf
+langchain
+langchain-community
+chromadb
+openai
+huggingface-hub
+tiktoken
+#InstructorEmbedding
+#sentence_transformers

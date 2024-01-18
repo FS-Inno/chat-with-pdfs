@@ -1,0 +1,7 @@
+___pycache__/
+*$py.class
+
+*.so
+.env
+
+venv/
