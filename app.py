@@ -15,12 +15,17 @@ def init():
         st.session_state.conversation = None
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None        
-    if "llm" not in st.session_state:
-        st.session_state.llm = ChatOpenAI(temperature=0, model_name='gpt-4')
-    if "embeddings" not in st.session_state:
-        st.session_state.embeddings = OpenAIEmbeddings()    
+    # if "llm" not in st.session_state:
+    #     st.session_state.llm = ChatOpenAI(temperature=0, model_name='gpt-4', openai_api_key=openai_key)
+    # if "embeddings" not in st.session_state:
+    #     st.session_state.embeddings = OpenAIEmbeddings()    
         #st.session_state.embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
-    
+
+def init_openai_components(openai_key):
+    if "llm" not in st.session_state:
+        st.session_state.llm = ChatOpenAI(temperature=0, model_name='gpt-4', openai_api_key=openai_key)
+    if "embeddings" not in st.session_state:
+        st.session_state.embeddings = OpenAIEmbeddings(openai_api_key=openai_key)    
 
 def get_pdf_text(pdf_docs):
     text=""
@@ -65,7 +70,7 @@ def handle_user_input(question):
 #                "{{MSG}}", message.content), unsafe_allow_html=True)
 
 def main():
-    load_dotenv()
+    #load_dotenv()
     init()
 
     st.set_page_config(page_title="Förderrichtlinien-Assistent", page_icon=":books:")
@@ -79,10 +84,13 @@ def main():
 
 
     with st.sidebar:
+        st.subheader("Konfiguration")
+        openai_key=st.text_input("OpenAI API Key")
         st.subheader("Förderrichtlinien")
         pdf_docs=st.file_uploader("Dokumente hier hochladen", accept_multiple_files=True)
         if st.button("Hochladen"):
             with st.spinner("Analysiere Dokumente ..."):
+                init_openai_components(openai_key)
                 #pdf_docs.name
                 #get pdf text
                 raw_text = get_pdf_text(pdf_docs)

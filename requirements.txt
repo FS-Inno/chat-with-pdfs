@@ -1,6 +1,5 @@
 streamlit
 pypdf2
-pymupdf
 langchain
 python-dotenv
 faiss-cpu

@@ -14,4 +14,18 @@ Sourcecode: https://pastebin.com/mcHG4cY4
 ## Backend
 
 Alternatives Embedding-Model: https://huggingface.co/hkunlp/instructor-xl
-Langchain-Doku: https://python.langchain.com/docs
+
+ChatPDF-Beispiel: https://github.com/Anil-matcha/ChatPDF/blob/main/pdfquery.py
+
+
+### Langchain
+Doku allgemein: https://python.langchain.com/docs
+ChatModels: https://python.langchain.com/docs/integrations/chat/
+Chains allgemein: https://python.langchain.com/docs/modules/chains/
+ConversationalRetrievalChain: https://api.python.langchain.com/en/latest/chains/langchain.chains.conversational_retrieval.base.ConversationalRetrievalChain.html#
+
+Cookbook: https://python.langchain.com/cookbook
+
+### Retriever
+ParentDocumentRetriever: https://python.langchain.com/docs/modules/data_connection/retrievers/parent_document_retriever
+Child vs. ParentChildRetriever: https://github.com/mneedham/LearnDataWithMark/blob/main/parent-child-retriever/notebooks/Child-vs-Parent-Child-Retriever-Tutorial.ipynb
