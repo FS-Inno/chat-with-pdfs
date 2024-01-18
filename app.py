@@ -10,6 +10,8 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
 
+gpt_model = 'gpt-4-1106-preview'
+
 def init():
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
@@ -23,7 +25,7 @@ def init():
 
 def init_openai_components(openai_key):
     if "llm" not in st.session_state:
-        st.session_state.llm = ChatOpenAI(temperature=0, model_name='gpt-4', openai_api_key=openai_key)
+        st.session_state.llm = ChatOpenAI(temperature=0, model_name=gpt_model, openai_api_key=openai_key)
     if "embeddings" not in st.session_state:
         st.session_state.embeddings = OpenAIEmbeddings(openai_api_key=openai_key)    
 

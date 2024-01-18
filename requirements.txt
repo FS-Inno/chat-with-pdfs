@@ -1,6 +1,7 @@
 streamlit
 pypdf2
 langchain
+langchain-community
 python-dotenv
 faiss-cpu
 openai
@@ -8,4 +9,3 @@ huggingface-hub
 tiktoken
 #InstructorEmbedding
 #sentence_transformers
-langchain-community
