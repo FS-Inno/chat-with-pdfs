@@ -3,5 +3,7 @@ ___pycache__/
 
 *.so
 .env
+.~env
+
 
 venv/
