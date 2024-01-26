@@ -27,5 +27,9 @@ ConversationalRetrievalChain: https://api.python.langchain.com/en/latest/chains/
 Cookbook: https://python.langchain.com/cookbook
 
 ### Retriever
+Was ist Retrieval? https://python.langchain.com/docs/modules/data_connection/
 ParentDocumentRetriever: https://python.langchain.com/docs/modules/data_connection/retrievers/parent_document_retriever
 Child vs. ParentChildRetriever: https://github.com/mneedham/LearnDataWithMark/blob/main/parent-child-retriever/notebooks/Child-vs-Parent-Child-Retriever-Tutorial.ipynb
+
+## Textsplitter
+Beschreibung verschiedener Textsplitter: https://medium.com/@cronozzz.rocks/splitting-large-documents-text-splitters-langchain-7c7bfa899267

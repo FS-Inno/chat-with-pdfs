@@ -8,7 +8,6 @@ from langchain.vectorstores import FAISS
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
-from htmlTemplates import css, bot_template, user_template
 
 gpt_model = 'gpt-4-1106-preview'
 
@@ -27,7 +26,7 @@ def init_openai_components(openai_key):
     if "llm" not in st.session_state:
         st.session_state.llm = ChatOpenAI(temperature=0, model_name=gpt_model, openai_api_key=openai_key)
     if "embeddings" not in st.session_state:
-        st.session_state.embeddings = OpenAIEmbeddings(openai_api_key=openai_key)    
+        st.session_state.embeddings = OpenAIEmbeddings(openai_api_key=openai_key)    #auf "text-embedding-3-small"
 
 def get_pdf_text(pdf_docs):
     text=""
@@ -63,20 +62,16 @@ def handle_user_input(question):
         if i % 2 == 0:
             with st.chat_message("user"):
                 st.write(message.content)
-#            st.write(user_template.replace(
-#                "{{MSG}}", message.content), unsafe_allow_html=True)
         else:
             with st.chat_message("assistant"):
                 st.write(message.content)
-#           st.write(bot_template.replace(
-#                "{{MSG}}", message.content), unsafe_allow_html=True)
+
 
 def main():
     #load_dotenv()
     init()
 
     st.set_page_config(page_title="Förderrichtlinien-Assistent", page_icon=":books:")
-    st.write(css, unsafe_allow_html=True)
 
     st.header(":books: Förderrichtlinien-Assistent ")
     user_input = st.chat_input("Stellen Sie Ihre Frage hier")
@@ -87,7 +82,9 @@ def main():
 
     with st.sidebar:
         st.subheader("Konfiguration")
-        openai_key=st.text_input("OpenAI API Key")
+        openai_key=st.query_params.get("openaikey")
+        if not(openai_key):
+            openai_key=st.text_input("OpenAI API Key")
         st.subheader("Förderrichtlinien")
         pdf_docs=st.file_uploader("Dokumente hier hochladen", accept_multiple_files=True)
         if st.button("Hochladen"):
@@ -102,8 +99,6 @@ def main():
                 vectorstore = get_vectorstore(text_chunks)
                 #create conversation chain
                 st.session_state.conversation = get_conversation(vectorstore) 
-
-        #st.write('<div style="position: fixed;bottom:16px;left:16px;"><a href="https://www.flaticon.com/free-icons/bot" title="bot icons">Bot icons created by Freepik - Flaticon</a></div>',unsafe_allow_html=True)
 
 
 if __name__ == "__main__":

@@ -7,5 +7,6 @@ chromadb
 openai
 huggingface-hub
 tiktoken
+textsplitter
 #InstructorEmbedding
 #sentence_transformers
