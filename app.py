@@ -10,6 +10,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 
 gpt_model = 'gpt-4-1106-preview'
+embedding_model = 'text-embedding-3-small'
 
 def init():
     if "conversation" not in st.session_state:
@@ -26,7 +27,7 @@ def init_openai_components(openai_key):
     if "llm" not in st.session_state:
         st.session_state.llm = ChatOpenAI(temperature=0, model_name=gpt_model, openai_api_key=openai_key)
     if "embeddings" not in st.session_state:
-        st.session_state.embeddings = OpenAIEmbeddings(openai_api_key=openai_key)    #auf "text-embedding-3-small"
+        st.session_state.embeddings = OpenAIEmbeddings(openai_api_key=openai_key, model=embedding_model)   
 
 def get_pdf_text(pdf_docs):
     text=""
