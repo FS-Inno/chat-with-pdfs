@@ -1,5 +1,6 @@
 # UI comes here
 import streamlit as st
+
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
@@ -51,13 +52,13 @@ def get_conversation(vectorstore):
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm=st.session_state.llm,
         retriever=vectorstore.as_retriever(),
-        memory = memory    
+        memory = memory   
     )
     return conversation_chain
 
 def handle_user_input(question):
     response = st.session_state.conversation({'question':question})
-    st .session_state.chat_history = response['chat_history']
+    st.session_state.chat_history = response['chat_history']
 
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
@@ -91,14 +92,9 @@ def main():
         if st.button("Hochladen"):
             with st.spinner("Analysiere Dokumente ..."):
                 init_openai_components(openai_key)
-                #pdf_docs.name
-                #get pdf text
                 raw_text = get_pdf_text(pdf_docs)
-                #get text chunks
                 text_chunks = get_text_chunks(raw_text)
-                #put to vectorstore
                 vectorstore = get_vectorstore(text_chunks)
-                #create conversation chain
                 st.session_state.conversation = get_conversation(vectorstore) 
 
 

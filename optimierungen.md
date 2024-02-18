@@ -14,3 +14,7 @@ One-Sentence-Child-Chunks mit größerem Parent-Chunk. Kleiner Chunk für Embedd
 
 ## Selfquerying
 https://python.langchain.com/docs/modules/data_connection/retrievers/self_query/
+
+## Ausgabe schneller darstellen
+- CallbackHandler verwenden: https://github.com/langchain-ai/streamlit-agent/blob/main/streamlit_agent/chat_with_documents.py
+- Neue Stream-Komponente in Streamlit: https://docs.streamlit.io/knowledge-base/tutorials/build-conversational-apps#build-a-simple-chatbot-gui-with-streaming

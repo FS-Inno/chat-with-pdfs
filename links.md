@@ -33,3 +33,16 @@ Child vs. ParentChildRetriever: https://github.com/mneedham/LearnDataWithMark/bl
 
 ## Textsplitter
 Beschreibung verschiedener Textsplitter: https://medium.com/@cronozzz.rocks/splitting-large-documents-text-splitters-langchain-7c7bfa899267
+
+
+## Gut zum abgucken
+PDF splitten mit Metadaten:
+https://github.com/mmz-001/knowledge_gpt/tree/main
+
+Textsummarization mit summarizationchain:
+https://github.com/dataprofessor/langchain-text-summarization/tree/master
+
+
+
+## How to build a good dashboard
+https://blog.streamlit.io/crafting-a-dashboard-app-in-python-using-streamlit/?utm_campaign=Streamlit%20Releases&utm_medium=email&_hsmi=292874685&_hsenc=p2ANqtz-_WcnZ7GT9tnOHnKiyAfIUIB_jAnGFedBbj6VXJJg2lkwXF9W4unqCTy4UbaabfgAPbKfung2UFzkTegArc619yhF5Vdg&utm_content=292874685&utm_source=hs_email#what%E2%80%99s-inside-the-dashboard
