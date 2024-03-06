@@ -1,5 +1,5 @@
 streamlit
-pypdf2
+PyPDF2==3.0.1
 langchain
 langchain-community
 python-dotenv
@@ -7,6 +7,5 @@ faiss-cpu
 openai
 huggingface-hub
 tiktoken
-PyPDF2
 #InstructorEmbedding
 #sentence_transformers
